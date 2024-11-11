@@ -2,36 +2,36 @@
 
 ### Juegos
 
-- `GET http://localhost/tp3eraentrega/api/juegos`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos`  
   Mostrar todos los juegos.
 
 ---
 
 #### Ordenar por
 
-- `GET http://localhost/tp3eraentrega/api/juegos?orderBy=nombre`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos?orderBy=nombre`  
   Mostrar todos los juegos ordenados por nombre.
 
-- `GET http://localhost/tp3eraentrega/api/juegos?orderBy=ID`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos?orderBy=ID`  
   Mostrar todos los juegos ordenados por ID.
 
-- `GET http://localhost/tp3eraentrega/api/juegos?orderBy=jugadores`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos?orderBy=jugadores`  
   Mostrar todos los juegos ordenados por cantidad de jugadores.
 
-- `GET http://localhost/tp3eraentrega/api/juegos?orderBy=fecha`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos?orderBy=fecha`  
   Mostrar todos los juegos ordenados por fecha de lanzamiento.
 
-- `GET http://localhost/tp3eraentrega/api/juegos?orderBy=consola`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos?orderBy=consola`  
   Mostrar todos los juegos ordenados por consola.
 
 ---
 
 #### Filtrar presencia de multiplayer
 
-- `GET http://localhost/tp3eraentrega/api/juegos?multiplayer=true`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos?multiplayer=true`  
   Mostrar todos los juegos multiplayer.
 
-- `GET http://localhost/tp3eraentrega/api/juegos?multiplayer=false`  
+- `GET http://localhost/TP_web2_3era_entrega/api/juegos?multiplayer=false`  
   Mostrar todos los juegos singleplayer.
 
 ---
@@ -40,7 +40,7 @@
 
 ### Modificar un Juego
 
-- `PUT http://localhost/tp3eraentrega/api/juegos/{id}`  
+- `PUT http://localhost/TP_web2_3era_entrega/api/juegos/{id}`  
   Modifica un juego. El cuerpo de la solicitud debe ser enviado manualmente en formato JSON. Ejemplo:
 
   ```json
