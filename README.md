@@ -1,5 +1,3 @@
-# API Endpoints
-
 ## GET
 
 ### Juegos
@@ -28,7 +26,7 @@
 
 ---
 
-#### Filtrar por modo de juego
+#### Filtrar presencia de multiplayer
 
 - `GET http://localhost/tp3eraentrega/api/juegos?multiplayer=true`  
   Mostrar todos los juegos multiplayer.
