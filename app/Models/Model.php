@@ -10,7 +10,7 @@ class Model {
 
     
     public function getJuegos($orderBy=false, $filtrarMultiplayer=null){
-        $sql = 'SELECT * FROM juegos';//el sql se separa para hacerlo pasar por logica, mira abajo
+        $sql = 'SELECT * FROM juegos';
         
         if($orderBy) {
             switch($orderBy) {
@@ -41,78 +41,49 @@ class Model {
         }
 
 
-        // 2. Ejecuto la consulta
         $query = $this->db->prepare($sql);
         $query->execute();
     
-        // 3. Obtengo los datos en un arreglo de objetos
+ 
         $juegos = $query->fetchAll(PDO::FETCH_OBJ); 
     
         return $juegos;
     }
 
 
-/*
 
-    public function updateJuego($nombre, $fechaLanzamiento, $jugadores, $IDConsola, $imagen = null, $id) {
-    
-        // Si se proporciona una imagen, se procesa y se guarda
-    
-        try {
- 
-            $query = $this->db->prepare('UPDATE juegos SET nombre = ?, fecha_lanzamiento = ?, jugadores = ?, ID_consola = ? WHERE ID = ?');
-            $query->execute(array($nombre, $fechaLanzamiento, $jugadores, $IDConsola, $id));
-            return $id; 
+
+    public function updateJuego($nombre, $jugadores, $fechaLanzamiento, $consolaID, $ID){
         
-        } catch (Exception $e) {
-            // Manejo de la excepción
-            return false;
-        }
-        
-    
-            
+        $query = $this->db->prepare('UPDATE juegos SET nombre = ?, fecha_lanzamiento = ?, jugadores = ?, ID_consola = ? WHERE ID = ?');
+        $query->execute([$nombre, $fechaLanzamiento, $jugadores, $consolaID, $ID]);
+
     }
 
+    public function getJuego($id){  
+        $query= $this->db->prepare('SELECT * FROM `juegos` WHERE ID = ?');
+        $query->execute([$id]);
 
-*/
-/*
+        $juego=$query->fetch(PDO::FETCH_OBJ);
+                
+        return $juego;
+      
+    }
+
+    
+    
+
+
+
+
+
+
+
+/*      NO SE SI ES NECESARIO
     public function deleteJuego($id) {
         $query = $this->db->prepare('DELETE FROM `juegos` WHERE ID=?');
         $query->execute([$id]); 
     }
 */
-    
-
-/*
-    //////////////////////////////////////                         
-    public function getTasks($filtrarFinalizadas = false, $orderBy = false) {  <-----------es de tareas
-        $sql = 'SELECT * FROM tareas';
-
-        if($filtrarFinalizadas) {
-            $sql .= ' WHERE finalizada = 0';
-        }
-
-        if($orderBy) {
-            switch($orderBy) {
-                case 'titulo':
-                    $sql .= ' ORDER BY titulo';
-                    break;
-                case 'prioridad':
-                    $sql .= ' ORDER BY prioridad';
-                    break;
-            }
-        }
-
-        // 2. Ejecuto la consulta
-        $query = $this->db->prepare($sql);
-        $query->execute();
-    
-        // 3. Obtengo los datos en un arreglo de objetos
-        $tasks = $query->fetchAll(PDO::FETCH_OBJ); 
-    
-        return $tasks;
-    }
-    //////////////////////////////////////////////*/
-
-
+  
 }

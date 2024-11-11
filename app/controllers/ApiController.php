@@ -40,6 +40,45 @@ class ApiController {
 
 
 
+    public function update($req, $res){
+
+        $id = $req->params->id;
+
+        $juego=$this->model->getJuego($id);
+        
+        if(!$juego){
+            return $this->view->response("juego inexistente con el id: $id",404);
+        }
+
+        //valido datos
+        if(empty($req->body->nombre)||!isset($req->body->nombre)||
+            empty($req->body->jugadores)||!isset($req->body->jugadores)||
+            empty($req->body->fecha_lanzamiento)||!isset($req->body->fecha_lanzamiento)||
+            empty($req->body->ID_consola)||!isset($req->body->ID_consola)){
+
+            return $this->view->response("datos invalidos o inexistentes",400);
+
+        }
+        //asigno datos del body
+       
+        $nombre = $req->body->nombre;
+        $jugadores = $req->body->jugadores;
+        $fechaLanzamiento = $req->body->fecha_lanzamiento;
+        $consolaID = $req->body->ID_consola;
+
+        //envio al model
+        $this->model->updateJuego($nombre, $jugadores, $fechaLanzamiento, $consolaID, $id);
+
+        //devuelvo la tarea modificada(buena practica)
+
+        $juego=$this->model->getJuego($id);
+        return $this->view->response($juego, 201);
+
+
+
+    }
+
+
 
 
 
