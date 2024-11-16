@@ -9,7 +9,7 @@
     #                 endpoint        verbo     controller             metodo
     $router->addRoute('juegos'      , 'GET',    'ApiController',   'getAll');
     //$router->addRoute('juegos/:id'  , 'GET',    'ApiController',   'get');
-    //$router->addRoute('juegos/:id'  , 'DELETE', 'ApiController',   'delete');
+    $router->addRoute('juegos/:id'  , 'DELETE', 'ApiController',   'delete');
     //$router->addRoute('juegos'      , 'POST',   'ApiController',   'add');
     $router->addRoute('juegos/:id'  , 'PUT',    'ApiController',   'update');
 

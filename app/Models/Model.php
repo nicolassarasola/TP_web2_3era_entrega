@@ -60,6 +60,10 @@ class Model {
 
     }
 
+
+
+
+
     public function getJuego($id){  
         $query= $this->db->prepare('SELECT * FROM `juegos` WHERE ID = ?');
         $query->execute([$id]);
@@ -70,20 +74,13 @@ class Model {
       
     }
 
-    
-    
 
 
 
-
-
-
-
-/*      NO SE SI ES NECESARIO
     public function deleteJuego($id) {
         $query = $this->db->prepare('DELETE FROM `juegos` WHERE ID=?');
         $query->execute([$id]); 
     }
-*/
+
   
 }
