@@ -1,5 +1,5 @@
 ### Integrantes:
-Nicolas Sarasola (miembro A),  
+Nicolas Sarasola (miembro A)     
 Hernan Valea (miembro B)
 
 ## GET
