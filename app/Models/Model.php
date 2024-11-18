@@ -50,7 +50,12 @@ class Model {
         return $juegos;
     }
 
-
+    public function addJuego($nombre, $jugadores, $fechaLanzamiento, $consolaID){
+    
+        $query = $this->db->prepare('INSERT INTO juegos(nombre, fecha_lanzamiento , jugadores, ID_consola ) VALUES (?,?,?,?)');
+        $query->execute([$nombre, $fechaLanzamiento, $jugadores, $consolaID]);
+        return $this->db->lastInsertId();
+    }
 
 
     public function updateJuego($nombre, $jugadores, $fechaLanzamiento, $consolaID, $ID){

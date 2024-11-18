@@ -36,7 +36,36 @@ class ApiController {
         return $this->view->response($juegos);
     }
 
+    public function get($req){
+        $id=$req->params->id;
+        $juego=$this->model->getJuego($id);
+        if(!$juego){
+            return $this->view->response("el juego con el id: $id es inexistente", 404); 
+        }
+        return $this->view->response($juego,200);
+    }
 
+
+    public function add($req){
+        
+        if(empty($req->body->nombre)||!isset($req->body->nombre)||
+            empty($req->body->jugadores)||!isset($req->body->jugadores)||
+            empty($req->body->fecha_lanzamiento)||!isset($req->body->fecha_lanzamiento)||
+            empty($req->body->ID_consola)||!isset($req->body->ID_consola)){
+            return $this->view->response("datos invalidos o inexistentes",400);
+        }
+
+        $nombre = $req->body->nombre;
+        $jugadores = $req->body->jugadores;
+        $fechaLanzamiento = $req->body->fecha_lanzamiento;
+        $consolaID = $req->body->ID_consola;
+
+        $productoNuevo=$this->model->addJuego($nombre,$jugadores,$fechaLanzamiento,$consolaID);
+
+      
+        return $this->view->response($productoNuevo,201);
+
+    }
 
     public function update($req){
 
