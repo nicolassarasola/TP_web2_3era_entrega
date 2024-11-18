@@ -1,3 +1,7 @@
+### Integrantes:
+Nicolas Sarasola (miembro A) 
+Hernan Valea (miembro B)
+
 ## GET
 
 ### Juegos
